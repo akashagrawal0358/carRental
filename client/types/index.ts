@@ -14,3 +14,15 @@ export interface CustomButtonProps {
     // allows you to pass a function
     handleClick?: MouseEventHandler<HTMLButtonElement>;
   }
+
+
+  export interface CustomFilterProps {
+    title : string ;
+  } 
+
+  export interface SearchManufacturerProps{
+    manufacturer : string ;
+
+    // setState returns void 
+    setManufacturer : (manufacturer : string) => void ;
+  }
