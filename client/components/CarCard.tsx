@@ -4,6 +4,7 @@ import Image from "next/image";
 import CustomButton from "./CustomButton";
 import { calculateCarRent } from "@/utils";
 import { useState } from "react";
+import CarDetails from "./CarDetails";
 
 // all cars Props are inside car
 interface AllCarProps {
@@ -15,7 +16,7 @@ const CarCard = ({ car }: AllCarProps) => {
   const { year, transmission, make, model, city_mpg, drive } = car;
   const carRent = calculateCarRent(city_mpg, year);
 
-  const [isOpen, setIsOpen] = useState(false) ;
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="car-card group">
@@ -68,16 +69,16 @@ const CarCard = ({ car }: AllCarProps) => {
         </div>
         <div className="car-card__btn-container">
           <CustomButton
-            title='View More'
-            containerStyles='w-full py-[16px] rounded-full bg-primary-blue'
-            textStyles='text-white text-[14px] leading-[17px] font-bold'
-            rightIcon='/right-arrow.svg'
+            title="View More"
+            containerStyles="w-full py-[16px] rounded-full bg-primary-blue"
+            textStyles="text-white text-[14px] leading-[17px] font-bold"
+            rightIcon="/right-arrow.svg"
             handleClick={() => setIsOpen(true)}
           />
-       
+        </div>
       </div>
+      <CarDetails isOpen={isOpen} closeModal={()=>setIsOpen(false)} car={car} />
 
-      </div>
     </div>
   );
 };

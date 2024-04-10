@@ -42,3 +42,4 @@ export interface CarProps {
   make: string;
   fuel_type: string;
 }
+
